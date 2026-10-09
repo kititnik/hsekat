@@ -1,7 +1,7 @@
 using HseKat.Domain.Abstractions;
 using HseKat.Domain.Vehicles;
 
-namespace HseKat.Service.Reports;
+namespace HseKat.Services.Reports;
 
 public sealed class FleetReportService : IFleetReportService
 {

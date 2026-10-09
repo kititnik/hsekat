@@ -1,6 +1,6 @@
 using HseKat.Domain.Vehicles;
 
-namespace HseKat.Service.Reports;
+namespace HseKat.Services.Reports;
 
 public interface IBeginnerPolicy
 {

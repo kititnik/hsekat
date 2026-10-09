@@ -1,4 +1,4 @@
-namespace HseKat.Service.Inspection;
+namespace HseKat.Services.Inspection;
 
 public enum InspectionResult
 {

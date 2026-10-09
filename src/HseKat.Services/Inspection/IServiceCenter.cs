@@ -1,6 +1,6 @@
 using HseKat.Domain.Vehicles;
 
-namespace HseKat.Service.Inspection;
+namespace HseKat.Services.Inspection;
 
 public interface IServiceCenter
 {

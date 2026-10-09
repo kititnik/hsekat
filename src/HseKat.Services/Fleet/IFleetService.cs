@@ -1,8 +1,8 @@
 using HseKat.Domain.Abstractions;
 using HseKat.Domain.Vehicles;
-using HseKat.Service.Inspection;
+using HseKat.Services.Inspection;
 
-namespace HseKat.Service.Fleet;
+namespace HseKat.Services.Fleet;
 
 public interface IFleetService
 {

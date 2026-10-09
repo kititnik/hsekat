@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HseKat.Domain\HseKat.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
