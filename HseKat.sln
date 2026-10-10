@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HseKat.Repository", "src\Hs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HseKat.ConsoleApp", "src\HseKat.ConsoleApp\HseKat.ConsoleApp.csproj", "{5EBC6526-FD8A-48D2-9A39-5CE8AA1C4487}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HseKat.Tests", "tests\HseKat.Tests\HseKat.Tests.csproj", "{6715DC7A-F98A-4891-8EA6-52AA801B2FA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{5EBC6526-FD8A-48D2-9A39-5CE8AA1C4487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EBC6526-FD8A-48D2-9A39-5CE8AA1C4487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EBC6526-FD8A-48D2-9A39-5CE8AA1C4487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6715DC7A-F98A-4891-8EA6-52AA801B2FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6715DC7A-F98A-4891-8EA6-52AA801B2FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6715DC7A-F98A-4891-8EA6-52AA801B2FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6715DC7A-F98A-4891-8EA6-52AA801B2FA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
