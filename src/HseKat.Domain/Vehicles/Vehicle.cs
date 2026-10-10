@@ -2,7 +2,7 @@ using HseKat.Domain.Abstractions;
 
 namespace HseKat.Domain.Vehicles;
 
-public abstract class Vehicle : InventoryItem, IRentable
+public abstract class Vehicle : InventoryItem
 {
     public const int MinBeginnerEase = 1;
     public const int MaxBeginnerEase = 10;
