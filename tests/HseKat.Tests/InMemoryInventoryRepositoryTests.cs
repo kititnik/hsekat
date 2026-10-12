@@ -20,4 +20,21 @@ public class InMemoryInventoryRepositoryTests
 
         Assert.Same(helmet, Assert.Single(_repository.GetAll()));
     }
+
+    [Fact]
+    public void NextInventoryNumber_Call_ShouldReturnSequentialNumbers()
+    {
+        Assert.Equal(1, _repository.NextInventoryNumber());
+        Assert.Equal(2, _repository.NextInventoryNumber());
+    }
+
+    [Fact]
+    public void NextInventoryNumber_AfterAddWithHigherNumber_ShouldContinueFromIt()
+    {
+        _repository.Add(new Helmet(5, "Helmet"));
+
+        var result = _repository.NextInventoryNumber();
+
+        Assert.Equal(6, result);
+    }
 }

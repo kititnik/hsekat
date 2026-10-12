@@ -8,4 +8,5 @@ public interface IFleetService
 {
     InspectionResult AdmitVehicle(Vehicle vehicle);
     void RegisterItem(Thing item);
+    int NextInventoryNumber();
 }

@@ -36,4 +36,9 @@ public sealed class FleetService : IFleetService
 
         _repository.Add(item);
     }
+
+    public int NextInventoryNumber()
+    {
+        return _repository.NextInventoryNumber();
+    }
 }

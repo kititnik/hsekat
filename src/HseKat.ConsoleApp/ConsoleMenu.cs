@@ -12,7 +12,6 @@ public sealed class ConsoleMenu
     private readonly IFleetService _fleetService;
     private readonly IFleetReportService _reportService;
     private readonly ConsoleInput _input;
-    private int _lastInventoryNumber;
 
     public ConsoleMenu(IFleetService fleetService, IFleetReportService reportService, ConsoleInput input)
     {
@@ -102,9 +101,9 @@ public sealed class ConsoleMenu
 
         Vehicle vehicle = type switch
         {
-            1 => new ElectricScooter(NextInventoryNumber(), name, state, ease, ReadDailyEnergy()),
-            2 => new Bicycle(NextInventoryNumber(), name, state, ease),
-            _ => new ElectricBicycle(NextInventoryNumber(), name, state, ease, ReadDailyEnergy())
+            1 => new ElectricScooter(_fleetService.NextInventoryNumber(), name, state, ease, ReadDailyEnergy()),
+            2 => new Bicycle(_fleetService.NextInventoryNumber(), name, state, ease),
+            _ => new ElectricBicycle(_fleetService.NextInventoryNumber(), name, state, ease, ReadDailyEnergy())
         };
 
         var result = _fleetService.AdmitVehicle(vehicle);
@@ -122,9 +121,9 @@ public sealed class ConsoleMenu
 
         Thing item = type switch
         {
-            1 => new Helmet(NextInventoryNumber(), name),
-            2 => new DockStation(NextInventoryNumber(), name, ReadDailyEnergy()),
-            _ => new ChargingCabinet(NextInventoryNumber(), name, ReadDailyEnergy())
+            1 => new Helmet(_fleetService.NextInventoryNumber(), name),
+            2 => new DockStation(_fleetService.NextInventoryNumber(), name, ReadDailyEnergy()),
+            _ => new ChargingCabinet(_fleetService.NextInventoryNumber(), name, ReadDailyEnergy())
         };
 
         _fleetService.RegisterItem(item);
@@ -177,11 +176,6 @@ public sealed class ConsoleMenu
     private double ReadDailyEnergy()
     {
         return _input.ReadDouble("Расход энергии, кВт·ч/сутки", 0);
-    }
-
-    private int NextInventoryNumber()
-    {
-        return ++_lastInventoryNumber;
     }
 
     private static string Describe(IInventoryItem item)
