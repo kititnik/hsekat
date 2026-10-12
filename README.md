@@ -31,18 +31,20 @@ InventoryItem (abstract) : IInventoryItem
         Bicycle
         ElectricScooter : IEnergyConsumer
         ElectricBicycle : IEnergyConsumer
-    Helmet
-    DockStation : IEnergyConsumer
-    ChargingCabinet : IEnergyConsumer
+    Thing (abstract)
+        Helmet
+        DockStation : IEnergyConsumer
+        ChargingCabinet : IEnergyConsumer
 ```
 
 - `IInventoryItem` - всё, что стоит на балансе.
 - `IEnergyConsumer` - всё что потребляет энергию.
 - `Vehicle` - техническое состояние и простота для новичка.
+- `Thing` - вещи, которые ставятся на баланс без техосмотра. Своих членов нет, нужен для сигнатуры `RegisterItem`.
 
 ## Ключевые решения
 
-- Техосмотр. `FleetService.AdmitVehicle` отдаёт транспорт в `IServiceCenter`, и в репозиторий он попадает только при `Accepted`. `BasicServiceCenter` принимает только `TechnicalState.Good`. Вещи регистрируются через `RegisterItem`. Транспорт туда передать нельзя (будет исключение), иначе можно было бы обойти техосмотр.
+- Техосмотр. `FleetService.AdmitVehicle` отдаёт транспорт в `IServiceCenter`, и в репозиторий он попадает только при `Accepted`. `BasicServiceCenter` принимает только `TechnicalState.Good`. Вещи регистрируются через `RegisterItem`, который принимает только `Thing`, иначе можно было бы обойти техосмотр.
 - Инвентарные номера выдаёт приложение по счётчику при создании объекта. Номера в парке могут идти с пропусками. Уникальность номера дополнительно проверяет репозиторий.
 - Правило для новичков вынесено в `IBeginnerPolicy`. По умолчанию это `MinEaseBeginnerPolicy(6)`.
 
@@ -76,7 +78,7 @@ DIP: `FleetService` зависит от `IServiceCenter`, поэтому тех�
 
 ## Тесты
 
-31 тест, покрытие 96% по Domain, Services и Repository.
+30 тестов, покрытие 96% по Domain, Services и Repository.
 
 ```bash
 dotnet test --collect:"XPlat Code Coverage"

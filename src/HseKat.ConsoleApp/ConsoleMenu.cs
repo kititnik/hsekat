@@ -120,7 +120,7 @@ public sealed class ConsoleMenu
         var type = _input.ReadInt("Тип (1 - шлем, 2 - док-станция, 3 - зарядный шкаф)", 1, 3);
         var name = _input.ReadText("Название");
 
-        IInventoryItem item = type switch
+        Thing item = type switch
         {
             1 => new Helmet(NextInventoryNumber(), name),
             2 => new DockStation(NextInventoryNumber(), name, ReadDailyEnergy()),

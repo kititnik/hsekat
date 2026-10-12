@@ -1,4 +1,5 @@
 using HseKat.Domain.Abstractions;
+using HseKat.Domain.Things;
 using HseKat.Domain.Vehicles;
 using HseKat.Services.Inspection;
 
@@ -29,11 +30,9 @@ public sealed class FleetService : IFleetService
         return result;
     }
 
-    public void RegisterItem(IInventoryItem item)
+    public void RegisterItem(Thing item)
     {
         ArgumentNullException.ThrowIfNull(item);
-        if (item is Vehicle)
-            throw new ArgumentException("Vehicles must be admitted through inspection.", nameof(item));
 
         _repository.Add(item);
     }

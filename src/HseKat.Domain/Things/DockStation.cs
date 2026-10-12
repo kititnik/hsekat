@@ -2,7 +2,7 @@ using HseKat.Domain.Abstractions;
 
 namespace HseKat.Domain.Things;
 
-public sealed class DockStation : InventoryItem, IEnergyConsumer
+public sealed class DockStation : Thing, IEnergyConsumer
 {
     public double DailyEnergyKwh { get; }
 

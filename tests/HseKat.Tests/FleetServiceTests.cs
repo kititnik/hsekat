@@ -55,17 +55,6 @@ public class FleetServiceTests
     }
 
     [Fact]
-    public void RegisterItem_Vehicle_ShouldThrowAndNotAddToRepository()
-    {
-        var vehicle = new ElectricScooter(1, "Test", TechnicalState.Good, 7, 0.5);
-
-        Assert.Throws<ArgumentException>(() => _fleetService.RegisterItem(vehicle));
-
-        _repository.DidNotReceive().Add(Arg.Any<IInventoryItem>());
-        _serviceCenter.DidNotReceive().Inspect(Arg.Any<Vehicle>());
-    }
-
-    [Fact]
     public void RegisterItem_Helmet_ShouldAddToRepositoryOnce()
     {
         var helmet = new Helmet(1, "Helmet");
